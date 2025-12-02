@@ -1,0 +1,43 @@
+{% extends "product.html" %}
+
+{% block shoppage %}
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clean Product Grid</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+  <!-- Product Grid Container -->
+   {% for a in products %}
+  <main class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-10">
+
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Our Products</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+      <!-- Card -->
+      <div class="bg-white rounded-2xl shadow-sm border hover:shadow-md transition p-4">
+        <div class="relative">
+          <img src={{a.dress_image}} class="w-full h-48 object-cover rounded-xl" />
+          <span class="absolute top-3 left-3 bg-indigo-600 text-white text-xs px-2 py-1 rounded">New</span>
+        </div>
+        <div class="mt-4">
+          <h3 class="font-semibold text-gray-800 text-sm">{{a.dress_name}}</h3>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="font-bold text-gray-900">{{a.dress_price}}</span>
+            <button class="px-3 py-2 text-sm bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </main>
+
+</body>
+</html>
+
+
+{% endblock shoppage %}
